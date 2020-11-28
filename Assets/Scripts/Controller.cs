@@ -30,13 +30,6 @@ public class Controller : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.centerOfMass = CenterOfMass;
     }
-
-    private void OnEnable()
-    {
-        //Cursor.lockState = CursorLockMode.Locked;
-        //Cursor.visible = false;
-    }
-
     private void Update()
     {
         Throttle();
