@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class Throttle : MonoBehaviour
 {
     public Controller Controller;
-    private Controller controller;
+    public Controller controller;
     private Text text;
 
     private void Awake()
@@ -15,6 +15,7 @@ public class Throttle : MonoBehaviour
 
     private void Update()
     {
+        //controller = GameObject.FindWithTag("Player").GetComponent<Controller>();
         text.text = string.Format("Throttle {0}", (controller.throttle * 100.0f).ToString("000"));
     }
 }

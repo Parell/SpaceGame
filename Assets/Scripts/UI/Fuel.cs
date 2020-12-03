@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class Fuel : MonoBehaviour
 {
     public Controller Controller;
-    private Controller controller;
+    public Controller controller;
     private Text text;
 
     private void Awake()
@@ -15,6 +15,7 @@ public class Fuel : MonoBehaviour
 
     private void Update()
     {
-        text.text = string.Format("Fuel {0}", (controller.fuel).ToString("000.0"));
+        //controller = GameObject.FindWithTag("Player").GetComponent<Controller>();
+        text.text = string.Format("Fuel {0}", (controller.fuel).ToString("000.00"));
     }
 }

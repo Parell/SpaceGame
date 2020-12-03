@@ -18,6 +18,7 @@ public class Ammo : MonoBehaviour
 
     private void Update()
     {
+        //gun = GameObject.FindWithTag("Gun").GetComponent<Gun>();
         text.text = string.Format("Ammo {0}", gun.AmmoCount.ToString());
     }
 }

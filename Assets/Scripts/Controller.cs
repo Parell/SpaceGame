@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using Mirror;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Controller : MonoBehaviour
+public class Controller : NetworkBehaviour
 {
     public Rigidbody rb;
     public Vector3 CenterOfMass;
@@ -32,15 +33,29 @@ public class Controller : MonoBehaviour
     }
     private void Update()
     {
-        Throttle();
-        Sas();
+        if (!isLocalPlayer) return;
         if (fuel > 0)
         {
+            Throttle();
+            Sas();
             rb.AddRelativeForce(Force(), ForceMode.VelocityChange);
             if (Input.GetKey(KeyCode.Mouse1))
             {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
                 rb.AddRelativeTorque(Torque(), ForceMode.VelocityChange);
             }
+            else
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+
+        }
+        else if (fuel <= 0)
+        {
+            throttle = 0;
+            sas = false;
         }
     }
 
