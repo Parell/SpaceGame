@@ -8,15 +8,17 @@ public class Controller : NetworkBehaviour
     public Vector3 CenterOfMass;
 
     [Range(0, 1)]
-    public float throttle;
+    public float throttle = 0.5f;
 
-    public float speed = 0f;
-    public float rollSpeed = 0f;
-    public float turnSpeed = 0f;
-    public float fuel = 0f;
+    public float speed = 150f;
+    public float rollSpeed = 50f;
+    public float turnSpeed = 0.1f;
+    public float fuel = 100f;
     public bool invertY = false;
-    public int angularDrag = 1;
+    public int drag = 3;
+    public int angularDrag = 2;
     public bool sas = false;
+    public bool stop = false;
     public List<ParticleSystem> forward;
     public List<ParticleSystem> backward;
     public List<ParticleSystem> left;
@@ -36,8 +38,30 @@ public class Controller : NetworkBehaviour
         if (!isLocalPlayer) return;
         if (fuel > 0)
         {
+
+            if (stop == true)
+            {
+                float currentSpeed = rb.velocity.magnitude;
+                float stopfueluse = 0f;
+                if (currentSpeed > 3)
+                {
+                    stopfueluse = 0.01f;
+                    fuel = fuel - 0.01f;
+                }
+                if (currentSpeed > 0.2)
+                {
+                    stopfueluse = 0.001f;
+                    fuel = fuel - 0.005f;
+                }
+                if (currentSpeed > 0.05)
+                {
+                    stopfueluse = 0f;
+                }
+                fuel = fuel - stopfueluse;
+            }
             Throttle();
             Sas();
+            Stop();
             rb.AddRelativeForce(Force(), ForceMode.VelocityChange);
             if (Input.GetKey(KeyCode.Mouse1))
             {
@@ -132,6 +156,19 @@ public class Controller : NetworkBehaviour
         {
             rb.angularDrag = 0f;
             sas = false;
+        }
+    }
+    private void Stop()
+    {
+        if (stop == false && Input.GetKeyDown(KeyCode.G))
+        {
+            rb.drag = drag;
+            stop = true;
+        }
+        else if (stop == true && Input.GetKeyUp(KeyCode.G))
+        {
+            rb.drag = 0f;
+            stop = false;
         }
     }
 }

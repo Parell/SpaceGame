@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 7487451735508897498}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1.2}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.7}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -130,8 +130,8 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   target: {fileID: 4794264781074239015}
-  lerpVelocityAmount: 0.5
-  lerpPositionAmount: 0.5
+  lerpVelocityAmount: 0
+  lerpPositionAmount: 0
   clientAuthority: 0
 --- !u!54 &4794264781074239015
 Rigidbody:
