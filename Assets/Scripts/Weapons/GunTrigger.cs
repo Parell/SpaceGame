@@ -1,12 +1,13 @@
-
 using Mirror;
 using UnityEngine;
 
 public class GunTrigger : NetworkBehaviour
 {
     public float force;
+
     //public new Rigidbody rigidbody;
     private Rigidbody rb;
+
     public Gun Gun;
     private Gun gun;
     public Gun[] guns;
@@ -16,6 +17,7 @@ public class GunTrigger : NetworkBehaviour
         gun = Gun.GetComponent<Gun>();
         rb = GetComponent<Rigidbody>();
     }
+
     public void Update()
     {
         if (!isLocalPlayer) return;

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Crosshair : MonoBehaviour
@@ -7,7 +5,7 @@ public class Crosshair : MonoBehaviour
     public Transform ship;
     public float boresightDistance = 1000f;
 
-    void Update()
+    private void Update()
     {
         if (ship != null)
         {

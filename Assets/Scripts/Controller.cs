@@ -5,7 +5,7 @@ using UnityEngine;
 public class Controller : NetworkBehaviour
 {
     public Rigidbody rb;
-    public Vector3 CenterOfMass;
+    public Vector3 centerOfMass;
 
     [Range(0, 1)]
     public float throttle = 0.5f;
@@ -31,37 +31,37 @@ public class Controller : NetworkBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.centerOfMass = CenterOfMass;
+        rb.centerOfMass = centerOfMass;
     }
+
     private void Update()
     {
         if (!isLocalPlayer) return;
         if (fuel > 0)
         {
-
-            if (stop == true)
-            {
-                float currentSpeed = rb.velocity.magnitude;
-                float stopfueluse = 0f;
-                if (currentSpeed > 3)
-                {
-                    stopfueluse = 0.01f;
-                    fuel = fuel - 0.01f;
-                }
-                if (currentSpeed > 0.2)
-                {
-                    stopfueluse = 0.001f;
-                    fuel = fuel - 0.005f;
-                }
-                if (currentSpeed > 0.05)
-                {
-                    stopfueluse = 0f;
-                }
-                fuel = fuel - stopfueluse;
-            }
+            //if (stop == true)
+            //{
+            //    float currentSpeed = rb.velocity.magnitude;
+            //    float stopfueluse = 0f;
+            //    if (currentSpeed > 3)
+            //    {
+            //        stopfueluse = 0.01f;
+            //        fuel = fuel - 0.01f;
+            //    }
+            //    if (currentSpeed > 0.8)
+            //    {
+            //        stopfueluse = 0.001f;
+            //        fuel = fuel - 0.005f;
+            //    }
+            //    if (currentSpeed < 0.05)
+            //    {
+            //        stopfueluse = 0f;
+            //    }
+            //    fuel = fuel - stopfueluse;
+            //}
             Throttle();
             Sas();
-            Stop();
+            //Stop();
             rb.AddRelativeForce(Force(), ForceMode.VelocityChange);
             if (Input.GetKey(KeyCode.Mouse1))
             {
@@ -74,7 +74,6 @@ public class Controller : NetworkBehaviour
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
             }
-
         }
         else if (fuel <= 0)
         {
@@ -158,17 +157,18 @@ public class Controller : NetworkBehaviour
             sas = false;
         }
     }
-    private void Stop()
-    {
-        if (stop == false && Input.GetKeyDown(KeyCode.G))
-        {
-            rb.drag = drag;
-            stop = true;
-        }
-        else if (stop == true && Input.GetKeyUp(KeyCode.G))
-        {
-            rb.drag = 0f;
-            stop = false;
-        }
-    }
+
+    //private void Stop()
+    //{
+    //    if (stop == false && Input.GetKeyDown(KeyCode.G))
+    //    {
+    //        rb.drag = drag;
+    //        stop = true;
+    //    }
+    //    else if (stop == true && Input.GetKeyUp(KeyCode.G))
+    //    {
+    //        rb.drag = 0f;
+    //        stop = false;
+    //    }
+    //}
 }

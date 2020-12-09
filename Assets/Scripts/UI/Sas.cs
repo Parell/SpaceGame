@@ -1,5 +1,4 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class Sas : MonoBehaviour
@@ -17,7 +16,7 @@ public class Sas : MonoBehaviour
     private void Update()
     {
         //controller = GameObject.FindWithTag("Player").GetComponent<Controller>();
-        
+
         if (controller.sas == true)
         {
             text.text = ("Sas on");

@@ -15,7 +15,6 @@ public enum RandomSpawnerShape
 public class RandomAreaSpawner : MonoBehaviour
 {
     [Header("General settings:")]
-
     [Tooltip("Prefab to spawn.")]
     public Transform prefab;
 
@@ -38,7 +37,6 @@ public class RandomAreaSpawner : MonoBehaviour
     public Vector2 scaleRange = new Vector2(1.0f, 3.0f);
 
     [Header("Rigidbody settings:")]
-
     [Tooltip("Apply a velocity from 0 to this value in a random direction.")]
     public float velocity = 0.0f;
 
@@ -49,7 +47,7 @@ public class RandomAreaSpawner : MonoBehaviour
     public bool scaleMass = true;
 
     // Use this for initialization
-    void Start()
+    private void Start()
     {
         if (prefab != null)
         {
