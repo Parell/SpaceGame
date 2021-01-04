@@ -1,7 +1,6 @@
-using Mirror;
 using UnityEngine;
 
-public class GunTrigger : NetworkBehaviour
+public class GunTrigger : MonoBehaviour
 {
     public float force;
 
@@ -20,7 +19,6 @@ public class GunTrigger : NetworkBehaviour
 
     public void Update()
     {
-        if (!isLocalPlayer) return;
         if (Input.GetMouseButton(0) == true)
         {
             if (gun.AmmoCount >= 1)

@@ -1,8 +1,7 @@
-﻿using Mirror;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class Controller : NetworkBehaviour
+public class Controller : MonoBehaviour
 {
     public Rigidbody rb;
     public Vector3 centerOfMass;
@@ -36,7 +35,6 @@ public class Controller : NetworkBehaviour
 
     private void Update()
     {
-        if (!isLocalPlayer) return;
         if (fuel > 0)
         {
             //if (stop == true)
