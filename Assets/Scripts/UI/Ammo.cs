@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class Ammo : MonoBehaviour
 {
-    // add a list of guns
     public Gun Gun;
 
     private Gun gun;
@@ -17,7 +16,6 @@ public class Ammo : MonoBehaviour
 
     private void Update()
     {
-        //gun = GameObject.FindWithTag("Gun").GetComponent<Gun>();
         text.text = string.Format("Ammo {0}", gun.AmmoCount.ToString());
     }
 }

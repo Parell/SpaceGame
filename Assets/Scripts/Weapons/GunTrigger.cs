@@ -3,10 +3,7 @@ using UnityEngine;
 public class GunTrigger : MonoBehaviour
 {
     public float force;
-
-    //public new Rigidbody rigidbody;
     private Rigidbody rb;
-
     public Gun Gun;
     private Gun gun;
     public Gun[] guns;

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class Sas : MonoBehaviour
 {
     public Controller Controller;
-    public Controller controller;
+    private Controller controller;
     private Text text;
 
     private void Awake()
@@ -15,8 +15,6 @@ public class Sas : MonoBehaviour
 
     private void Update()
     {
-        //controller = GameObject.FindWithTag("Player").GetComponent<Controller>();
-
         if (controller.sas == true)
         {
             text.text = ("Sas on");

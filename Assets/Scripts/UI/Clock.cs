@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class Clock : MonoBehaviour
 {
-    private string t;
+    private string time;
     private Text text;
 
     private void Awake()
@@ -13,7 +13,7 @@ public class Clock : MonoBehaviour
 
     private void Update()
     {
-        t = System.DateTime.Now.ToString("HH:mm");
-        text.text = string.Format(t);
+        time = System.DateTime.Now.ToString("HH:mm");
+        text.text = string.Format(time);
     }
 }
