@@ -2336,7 +2336,7 @@ MonoBehaviour:
   speed: 30000
   rollSpeed: 10000
   turnSpeed: 0.1
-  fuel: 100
+  fuel: 1000
   angularDrag: 1
   cursorLocked: 1
   invertY: 0
